@@ -767,6 +767,7 @@ getModIfaceFromDiskRule recorder = defineEarlyCutoff (cmapWithPrio LogShake reco
     Just session -> do
       linkableType <- getLinkableType f
       ver <- use_ GetModificationTime f
+      ShakeExtras{ideNc} <- getShakeExtras
       let m_old = case old of
             Shake.Succeeded (Just old_version) v -> Just (v, old_version)
             Shake.Stale _   (Just old_version) v -> Just (v, old_version)
@@ -834,9 +835,11 @@ instance IsIdeGlobal DisplayTHWarning
 getModSummaryRule :: LspT Config IO () -> Recorder (WithPriority Log) -> Rules ()
 getModSummaryRule displayTHWarning recorder = do
     menv <- lspEnv <$> getShakeExtrasRules
-    forM_ menv $ \env -> do
+    case menv of
+      Just env -> do
         displayItOnce <- liftIO $ once $ LSP.runLspT env displayTHWarning
         addIdeGlobal (DisplayTHWarning displayItOnce)
+      Nothing -> addIdeGlobal (DisplayTHWarning $ pure ())
 
     defineEarlyCutoff (cmapWithPrio LogShake recorder) $ Rule $ \GetModSummary f -> do
         session' <- hscEnv <$> use_ GhcSession f
