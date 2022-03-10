@@ -141,5 +141,6 @@ main = withTelemetryLogger $ \telemetryLogger -> do
                 , optCheckParents = pure $ checkParents config
                 , optCheckProject = pure $ checkProject config
                 , optRunSubset = not argsConservativeChangeTracking
+                , optVerifyCoreFile = argsVerifyCoreFile
                 }
         }
