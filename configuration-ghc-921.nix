@@ -4,6 +4,7 @@
 let
   disabledPlugins = [
     "hls-brittany-plugin"
+    "hls-eval-plugin"
     "hls-stylish-haskell-plugin"
     "hls-hlint-plugin"
     "hls-haddock-comments-plugin"
