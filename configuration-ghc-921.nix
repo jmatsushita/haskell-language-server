@@ -20,7 +20,7 @@ let
       hlsDisabledPlugins = disabledPlugins;
 
       fourmolu = hself.callCabal2nix "fourmolu" inputs.fourmolu {};
-      primitive-extras = hself.callHackage "primitive-extras" "0.10.1.2" {}; # hself.primitive-extras_0_10_1_2;
+      primitive-extras = hself.callHackage "primitive-extras" "0.10.1.4" {}; # hself.primitive-extras_0_10_1_2;
       ghc-exactprint = hself.callCabal2nix "ghc-exactprint" inputs.ghc-exactprint {};
       constraints-extras = hself.callCabal2nix "constraints-extras" inputs.constraints-extras {};
       retrie = hself.callCabal2nix "retrie" inputs.retrie {};
