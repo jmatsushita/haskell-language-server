@@ -25,6 +25,7 @@ let
       ghc-exactprint = hself.callCabal2nix "ghc-exactprint" inputs.ghc-exactprint {};
       constraints-extras = hself.callCabal2nix "constraints-extras" inputs.constraints-extras {};
       retrie = hself.callCabal2nix "retrie" inputs.retrie {};
+      pretty-simple = hself.callHackage "pretty-simple" "4.1.0.0" {}; # hself.primitive-extras_0_10_1_2;
 
       # Hlint is still broken
       hlint = doJailbreak (hself.callCabal2nix "hlint" inputs.hlint {});
