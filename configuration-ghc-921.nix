@@ -20,14 +20,14 @@ let
       hlsDisabledPlugins = disabledPlugins;
 
       fourmolu = hself.callCabal2nix "fourmolu" inputs.fourmolu {};
-      primitive-extras = hself.primitive-extras_0_10_1_2;
+      primitive-extras = hself.callHackage "primitive-extras" "0.10.1.2" {}; # hself.primitive-extras_0_10_1_2;
       ghc-exactprint = hself.callCabal2nix "ghc-exactprint" inputs.ghc-exactprint {};
       constraints-extras = hself.callCabal2nix "constraints-extras" inputs.constraints-extras {};
       retrie = hself.callCabal2nix "retrie" inputs.retrie {};
 
       # Hlint is still broken
       hlint = doJailbreak (hself.callCabal2nix "hlint" inputs.hlint {});
-      hiedb = hself.hiedb_0_4_1_0;
+      hiedb = hself.callHackage "hiedb" "0.4.1.0" {}; # hself.hiedb_0_4_1_0;
 
       # Re-generate HLS drv excluding some plugins
       haskell-language-server =
