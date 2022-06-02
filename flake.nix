@@ -93,7 +93,7 @@
           pluginsDir = ./plugins;
           pluginSourceDirs = builtins.removeAttrs (lib.mapAttrs'
             (name: _: lib.nameValuePair name (pluginsDir + ("/" + name)))
-            (builtins.readDir pluginsDir)) [ "default" ];
+            (builtins.readDir pluginsDir)) [ "default" "hls-stylish-haskell-plugin" ];
 
           # Source directories of our packages, should be consistent with cabal.project
           sourceDirs = {
