@@ -268,10 +268,10 @@ common tactic
     build-depends: hls-tactics-plugin >=1.2.0.0 && <1.7
     cpp-options: -Dtactic
 
-common hlint
-  if flag(hlint)
-    build-depends: hls-hlint-plugin ^>= 1.0
-    cpp-options: -Dhlint
+-- common hlint
+--   if flag(hlint)
+--     build-depends: hls-hlint-plugin ^>= 1.0
+--     cpp-options: -Dhlint
 
 common moduleName
   if flag(moduleName)
