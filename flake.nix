@@ -333,28 +333,28 @@
       in with pkgs; rec {
         # Developement shell with only compiler
         simpleDevShells = {
-          haskell-language-server-dev = mkDevShell ghcDefault "cabal.project";
-          haskell-language-server-884-dev = mkDevShell ghc884 "cabal.project";
+          # haskell-language-server-dev = mkDevShell ghcDefault "cabal.project";
+          # haskell-language-server-884-dev = mkDevShell ghc884 "cabal.project";
           haskell-language-server-8107-dev = mkDevShell ghc8107 "cabal.project";
-          haskell-language-server-901-dev = mkDevShell ghc901 "cabal.project";
-          haskell-language-server-921-dev = mkDevShell ghc921 "cabal.project";
+          # haskell-language-server-901-dev = mkDevShell ghc901 "cabal.project";
+          # haskell-language-server-921-dev = mkDevShell ghc921 "cabal.project";
         };
 
         # Developement shell, haskell packages are also provided by nix
         nixDevShells = {
-          haskell-language-server-dev-nix = mkDevShellWithNixDeps ghcDefault "cabal.project";
-          haskell-language-server-884-dev-nix = mkDevShellWithNixDeps ghc884 "cabal.project";
+          # haskell-language-server-dev-nix = mkDevShellWithNixDeps ghcDefault "cabal.project";
+          # haskell-language-server-884-dev-nix = mkDevShellWithNixDeps ghc884 "cabal.project";
           haskell-language-server-8107-dev-nix = mkDevShellWithNixDeps ghc8107 "cabal.project";
-          haskell-language-server-901-dev-nix = mkDevShellWithNixDeps ghc901 "cabal.project";
-          haskell-language-server-921-dev-nix = mkDevShellWithNixDeps ghc921 "cabal.project";
+          # haskell-language-server-901-dev-nix = mkDevShellWithNixDeps ghc901 "cabal.project";
+          # haskell-language-server-921-dev-nix = mkDevShellWithNixDeps ghc921 "cabal.project";
         };
 
         allPackages = {
-          haskell-language-server = mkExe ghcDefault;
-          haskell-language-server-884 = mkExe ghc884;
+          # haskell-language-server = mkExe ghcDefault;
+          # haskell-language-server-884 = mkExe ghc884;
           haskell-language-server-8107 = mkExe ghc8107;
-          haskell-language-server-901 = mkExe ghc901;
-          haskell-language-server-921 = mkExe ghc921;
+          # haskell-language-server-901 = mkExe ghc901;
+          # haskell-language-server-921 = mkExe ghc921;
         };
 
         devShells = simpleDevShells // nixDevShells;
