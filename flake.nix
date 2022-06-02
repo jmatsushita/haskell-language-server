@@ -320,7 +320,8 @@
         mkExe = hpkgs:
           with pkgs.haskell.lib;
           (enableSharedExecutables (overrideCabal hpkgs.haskell-language-server
-            (_: {
+            (drv: {
+              configureFlags = (drv.configureFlags ++ ["--flags=-hlint"])
               postInstall = ''
                 remove-references-to -t ${hpkgs.shake.data} $out/bin/haskell-language-server
                 remove-references-to -t ${hpkgs.js-jquery.data} $out/bin/haskell-language-server
@@ -335,7 +336,7 @@
         simpleDevShells = {
           # haskell-language-server-dev = mkDevShell ghcDefault "cabal.project";
           # haskell-language-server-884-dev = mkDevShell ghc884 "cabal.project";
-          haskell-language-server-8107-dev = mkDevShell ghc8107 "cabal.project";
+          # haskell-language-server-8107-dev = mkDevShell ghc8107 "cabal.project";
           # haskell-language-server-901-dev = mkDevShell ghc901 "cabal.project";
           # haskell-language-server-921-dev = mkDevShell ghc921 "cabal.project";
         };
@@ -344,7 +345,7 @@
         nixDevShells = {
           # haskell-language-server-dev-nix = mkDevShellWithNixDeps ghcDefault "cabal.project";
           # haskell-language-server-884-dev-nix = mkDevShellWithNixDeps ghc884 "cabal.project";
-          haskell-language-server-8107-dev-nix = mkDevShellWithNixDeps ghc8107 "cabal.project";
+          # haskell-language-server-8107-dev-nix = mkDevShellWithNixDeps ghc8107 "cabal.project";
           # haskell-language-server-901-dev-nix = mkDevShellWithNixDeps ghc901 "cabal.project";
           # haskell-language-server-921-dev-nix = mkDevShellWithNixDeps ghc921 "cabal.project";
         };
