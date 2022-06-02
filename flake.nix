@@ -320,8 +320,8 @@
         mkExe = hpkgs:
           with pkgs.haskell.lib;
           (enableSharedExecutables (overrideCabal hpkgs.haskell-language-server
-            (drv: {
-              configureFlags = (drv.configureFlags ++ ["--flags=-hlint"]);
+            (_: {
+              configureFlags = hpkgs.haskell-language-server.configureFlags ++ ["--flags=-hlint"];
               postInstall = ''
                 remove-references-to -t ${hpkgs.shake.data} $out/bin/haskell-language-server
                 remove-references-to -t ${hpkgs.js-jquery.data} $out/bin/haskell-language-server
